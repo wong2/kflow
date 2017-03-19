@@ -1,0 +1,59 @@
+{
+  "name": "kflow",
+  "productName": "Kflow",
+  "version": "0.1.0",
+  "description": "kflow is a GUI for k2pdfopt",
+  "license": "MIT",
+  "repository": "wong2/kflow",
+  "author": {
+    "name": "wong2",
+    "email": "wonderfuly@gmail.com",
+    "url": "wong2.me"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "webpack -w",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "com.wong2.kflow",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "index.html",
+      "main.js",
+      "out",
+      "node_modules"
+    ]
+  },
+  "main": "main.js",
+  "keywords": [
+    "electron-app",
+    "electron"
+  ],
+  "dependencies": {
+    "ansi-to-html": "^0.6.0",
+    "electron-debug": "^1.0.0",
+    "file-loader": "^0.10.1",
+    "fix-path": "^2.1.0",
+    "photon": "github:connors/photon",
+    "titlebar": "^1.4.0",
+    "url-loader": "^0.5.8",
+    "vue": "^2.2.4",
+    "vue-chat-scroll": "^1.1.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.27.3",
+    "devtron": "^1.1.0",
+    "electron": "^1.6.2",
+    "electron-builder": "^15.6.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "npm-install-webpack-plugin": "github:webpack-contrib/npm-install-webpack-plugin",
+    "style-loader": "^0.14.0",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.4",
+    "webpack": "^2.2.1"
+  }
+}
