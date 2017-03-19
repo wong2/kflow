@@ -1,32 +1,32 @@
 .window-content {
-	padding: 20px;
-	flex-direction: column;
-	-webkit-app-region: drag;
+  padding: 20px;
+  flex-direction: column;
+  -webkit-app-region: drag;
 }
 
 .convert-btn-section {
-	margin-top: auto;
+  margin-top: auto;
 }
 
 .path {
-	margin-left: 10px;
-	vertical-align: middle;
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
 .progressbar {
-	height: 2px;
-	background-color: green;
-	width: 0;
+  height: 2px;
+  background-color: green;
+  width: 0;
 }
 
 .log {
-	height: 150px;
-	overflow: scroll;
-	border: 1px solid #d4d2d4;
-	padding: 5px;
+  height: 150px;
+  overflow: scroll;
+  border: 1px solid #d4d2d4;
+  padding: 5px;
 }
 
 .option {
-	display: inline;
-	margin-right: 10px;
+  display: inline;
+  margin-right: 10px;
 }

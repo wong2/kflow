@@ -1,66 +1,66 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>kflow</title>
-		<link rel="stylesheet" href="./out/styles.css">
-	</head>
-	<body>
-		<div class="window" id="app">
-		  <div class="window-content">
-				<div class="section">
-					<h3>Options</h3>
-					<form>
-					  <div class="form-group">
-							<label>Device</label>
-							<select class="form-control" v-model="config.dev">
-								<option value="k2">Kindle 1-5</option>
-								<option value="dx">Kindle DX</option>
-								<option value="kpw">Kindle Paperwhite</option>
-								<option value="kp2">Kindle Paperwhite 2</option>
-								<option value="kp3">Kindle Paperwhite 3</option>
-								<option value="kv">Kindle Voyage</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Margin (inch)</label>
-							<input type="number" class="form-control" min="0" step="0.01" v-model="config.om">
-						</div>
-						<div class="form-group">
-							<label>Crop Margin (inch)</label>
-							<input type="number" class="form-control" min="0" step="0.01" v-model="config.m">
-						</div>
-						<div class="form-group">
-							<label>Smart line breaks</label>
-							<input type="number" class="form-control" step="0.001" v-model="config.ws">
-						</div>
-						<div class="checkbox option">
-							<label>
-								<input type="checkbox" v-model="config.as"> Autostraighten
-							</label>
-						</div>
-						<div class="checkbox option">
-							<label>
-								<input type="checkbox" v-model="config.wrap"> Re-flow text
-							</label>
-						</div>
-					</form>
-				</div>
-				<div class="section">
-					<h3>Input PDF</h3>
-					<button class="btn btn-large btn-default" @click="selectInputFile">Select</button>
-					<span class="path">{{ inputPath }}</span>
-				</div>
-			  <div class="section result">
-					<h3>Result</h3>
-					<div class="log" v-html="logText" v-chat-scroll></div>
-					<div class="progressbar" :style="{ width: progressText }"></div>
-				</div>
-				<div class="section convert-btn-section">
-					<button class="btn btn-large btn-primary" @click="convert">Convert</button>
-				</div>
-			</div>
-		</div>
-		<script>require('./out/app.js')</script>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>kflow</title>
+    <link rel="stylesheet" href="./out/styles.css">
+  </head>
+  <body>
+    <div class="window" id="app">
+      <div class="window-content">
+        <div class="section">
+          <h3>Options</h3>
+          <form>
+            <div class="form-group">
+              <label>Device</label>
+              <select class="form-control" v-model="config.dev">
+                <option value="k2">Kindle 1-5</option>
+                <option value="dx">Kindle DX</option>
+                <option value="kpw">Kindle Paperwhite</option>
+                <option value="kp2">Kindle Paperwhite 2</option>
+                <option value="kp3">Kindle Paperwhite 3</option>
+                <option value="kv">Kindle Voyage</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Margin (inch)</label>
+              <input type="number" class="form-control" min="0" step="0.01" v-model="config.om">
+            </div>
+            <div class="form-group">
+              <label>Crop Margin (inch)</label>
+              <input type="number" class="form-control" min="0" step="0.01" v-model="config.m">
+            </div>
+            <div class="form-group">
+              <label>Smart line breaks</label>
+              <input type="number" class="form-control" step="0.001" v-model="config.ws">
+            </div>
+            <div class="checkbox option">
+              <label>
+                <input type="checkbox" v-model="config.as"> Autostraighten
+              </label>
+            </div>
+            <div class="checkbox option">
+              <label>
+                <input type="checkbox" v-model="config.wrap"> Re-flow text
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="section">
+          <h3>Input PDF</h3>
+          <button class="btn btn-large btn-default" @click="selectInputFile">Select</button>
+          <span class="path">{{ inputPath }}</span>
+        </div>
+        <div class="section result">
+          <h3>Result</h3>
+          <div class="log" v-html="logText" v-chat-scroll></div>
+          <div class="progressbar" :style="{ width: progressText }"></div>
+        </div>
+        <div class="section convert-btn-section">
+          <button class="btn btn-large btn-primary" @click="convert">Convert</button>
+        </div>
+      </div>
+    </div>
+    <script>require('./out/app.js')</script>
+  </body>
 </html>
