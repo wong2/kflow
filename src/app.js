@@ -1,44 +1,15 @@
-import path from 'path'
+import fs from 'fs'
 import Vue from 'vue'
 import VueChatScroll from 'vue-chat-scroll'
 import { remote } from 'electron'
 import { spawn } from 'child_process'
-import Converter from 'ansi-to-html'
-import fixPath from 'fix-path'
+import { executablePath } from './config'
+import { ansiToHtml, configToOptions, getOutputPath, fixPath } from './utils'
 
 import 'photon/dist/css/photon.css'
 import './style.css'
 
 
-function ansiToHtml(s) {
-  const converter = new Converter()
-  let html = converter.toHtml(s)
-  return html.trimLeft().replace(/(?:\r\n|\r|\n)/g, '<br />')
-}
-
-function getOutputPath(inputPath) {
-  let ext = path.extname(inputPath)
-  let basename = path.basename(inputPath, ext)
-  let dir = path.dirname(inputPath)
-  return path.join(dir, `${basename}_k2opt${ext}`)
-}
-
-function configToOptions(config) {
-  let options = []
-  for (let [k, v] of Object.entries(config)) {
-    if (typeof v == 'boolean') {
-      if (v === true) {
-        options.push(`-${k}`)
-      }
-    } else {
-      options.push(`-${k}`)
-      options.push(v)
-    }
-  }
-  return options
-}
-
-fixPath()
 Vue.use(VueChatScroll)
 
 const app = new Vue({
@@ -99,20 +70,24 @@ const app = new Vue({
       this.progress = 0
       this.progressing = true
 
+      const win = remote.getCurrentWindow()
+      const [w, h] = win.getSize()
+      win.setSize(w, h+200, true)
+      win.center()
+
       let options = configToOptions(this.config)
       options = options.concat([
         '-x',
         '-o',
-        this.outputPath,
-        this.inputPath,
+        fixPath(this.outputPath),
+        fixPath(this.inputPath),
       ])
 
-      let child = spawn('k2pdfopt', options)
+      let child = spawn(fixPath(executablePath), options, {shell: true})
       child.stdout.on('data', this.log.bind(this))
       child.stderr.on('data', this.log.bind(this))
       child.on('close', (code) => {
         if (code === 0) {
-          this.progressing = false
           remote.shell.showItemInFolder(this.outputPath)
         } else {
           remote.dialog.showErrorBox('Error', `k2pdfopt exited with code: ${code}`)

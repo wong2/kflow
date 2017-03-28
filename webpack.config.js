@@ -3,10 +3,13 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var NpmInstallPlugin = require('npm-install-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: './src/app.js',
+    download: './src/download.js',
+  },
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, 'out')
+    path: path.resolve(__dirname, 'out'),
+    filename: '[name].js'
   },
   module: {
     rules: [

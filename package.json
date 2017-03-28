@@ -36,13 +36,16 @@
   "dependencies": {
     "ansi-to-html": "^0.6.0",
     "electron-debug": "^1.0.0",
+    "electron-dl": "github:wong2/electron-dl#dev",
     "file-loader": "^0.10.1",
     "fix-path": "^2.1.0",
     "photon": "github:connors/photon",
+    "progressbar.js": "^1.0.1",
+    "sleep-promise": "^2.0.0",
     "titlebar": "^1.4.0",
     "url-loader": "^0.5.8",
     "vue": "^2.2.4",
-    "vue-chat-scroll": "^1.1.0"
+    "vue-chat-scroll": "github:wong2/vue-chat-scroll#dev"
   },
   "devDependencies": {
     "css-loader": "^0.27.3",

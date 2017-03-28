@@ -51,7 +51,7 @@
           <button class="btn btn-large btn-default" @click="selectInputFile">Select</button>
           <span class="path">{{ inputPath }}</span>
         </div>
-        <div class="section result">
+        <div class="section result" v-if="progressing">
           <h3>Result</h3>
           <div class="log" v-html="logText" v-chat-scroll></div>
           <div class="progressbar" :style="{ width: progressText }"></div>
