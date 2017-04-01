@@ -71,7 +71,7 @@ const app = new Vue({
 
       const win = remote.getCurrentWindow()
       const [w, h] = win.getSize()
-      win.setSize(w, h+200, true)
+      win.setSize(w, 800, true)
       win.center()
 
       let options = configToOptions(this.config)
