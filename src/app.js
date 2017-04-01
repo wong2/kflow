@@ -3,12 +3,11 @@ import Vue from 'vue'
 import VueChatScroll from 'vue-chat-scroll'
 import { remote } from 'electron'
 import { spawn } from 'child_process'
-import { executablePath } from './config'
+import { executablePath, getUserOptions, saveUserOptions } from './config'
 import { ansiToHtml, configToOptions, getOutputPath, fixPath } from './utils'
 
 import 'photon/dist/css/photon.css'
 import './style.css'
-
 
 Vue.use(VueChatScroll)
 
@@ -19,14 +18,14 @@ const app = new Vue({
     progressing: false,
     progress: 0,
     logText: '',
-    config: {
+    config: Object.assign({
       dev: 'k2',
       om: 0.02,
       m: 0,
       ws: -0.2,
       as: true,
       wrap: true,
-    }
+    }, getUserOptions())
   },
   computed: {
     progressText: function() {
@@ -78,6 +77,7 @@ const app = new Vue({
       let options = configToOptions(this.config)
       options = options.concat([
         '-x',
+        '-y',
         '-o',
         fixPath(this.outputPath),
         fixPath(this.inputPath),
@@ -88,6 +88,7 @@ const app = new Vue({
       child.stderr.on('data', this.log.bind(this))
       child.on('close', (code) => {
         if (code === 0) {
+          saveUserOptions(this.config)
           remote.shell.showItemInFolder(this.outputPath)
         } else {
           remote.dialog.showErrorBox('Error', `k2pdfopt exited with code: ${code}`)

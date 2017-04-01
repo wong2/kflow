@@ -35,8 +35,9 @@
   ],
   "dependencies": {
     "ansi-to-html": "^0.6.0",
+    "electron-config": "^0.2.1",
     "electron-debug": "^1.0.0",
-    "electron-dl": "github:wong2/electron-dl#dev",
+    "electron-dl": "^1.8.0",
     "file-loader": "^0.10.1",
     "fix-path": "^2.1.0",
     "photon": "github:connors/photon",

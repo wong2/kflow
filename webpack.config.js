@@ -9,7 +9,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'out'),
-    filename: '[name].js'
+    filename: '[name].js',
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
@@ -37,6 +38,9 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js'
     }
   },
+  externals: [{
+    'electron-config': 'electron-config'
+  }],
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new NpmInstallPlugin(),
