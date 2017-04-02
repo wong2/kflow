@@ -1,7 +1,7 @@
 {
   "name": "kflow",
   "productName": "Kflow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "kflow is a GUI for k2pdfopt",
   "license": "MIT",
   "repository": "wong2/kflow",
