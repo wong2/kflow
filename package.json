@@ -11,35 +11,25 @@
     "url": "wong2.me"
   },
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
     "dev": "webpack -w",
-    "pack": "build --dir",
-    "dist": "build"
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
-  "build": {
-    "appId": "com.wong2.kflow",
-    "mac": {
-      "category": "public.app-category.utilities"
-    },
-    "files": [
-      "index.html",
-      "main.js",
-      "out",
-      "node_modules"
-    ]
-  },
-  "main": "main.js",
+  "main": "src/main.js",
   "keywords": [
     "electron-app",
     "electron"
   ],
   "dependencies": {
     "ansi-to-html": "^0.6.0",
+    "electron": "^1.6.2",
+    "electron-compile": "^6.1.3",
     "electron-config": "^0.2.1",
     "electron-debug": "^1.0.0",
     "electron-dl": "^1.8.0",
     "file-loader": "^0.10.1",
-    "fix-path": "^2.1.0",
     "photon": "github:connors/photon",
     "progressbar.js": "^1.0.1",
     "sleep-promise": "^2.0.0",
@@ -49,15 +39,44 @@
     "vue-chat-scroll": "github:wong2/vue-chat-scroll#dev"
   },
   "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-react": "^6.23.0",
     "css-loader": "^0.27.3",
     "devtron": "^1.1.0",
-    "electron": "^1.6.2",
-    "electron-builder": "^15.6.2",
+    "electron-prebuilt-compile": "1.6.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "npm-install-webpack-plugin": "github:webpack-contrib/npm-install-webpack-plugin",
     "style-loader": "^0.14.0",
     "vue-loader": "^11.1.4",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "icon": "src/icons/ico"
+      },
+      "electronWinstallerConfig": {},
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "wong2",
+        "name": "kflow"
+      },
+      "windowsStoreConfig": {}
+    }
   }
 }

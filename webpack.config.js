@@ -8,7 +8,7 @@ module.exports = {
     download: './src/download.js',
   },
   output: {
-    path: path.resolve(__dirname, 'out'),
+    path: path.resolve(__dirname, 'compiled'),
     filename: '[name].js',
     libraryTarget: 'commonjs2'
   },

@@ -1,0 +1,41 @@
+osx_image: xcode7.3
+
+dist: trusty
+sudo: false
+
+language: c
+
+matrix:
+  include:
+    - os: osx
+    - os: linux
+      env: CC=clang CXX=clang++ npm_config_clang=1
+      compiler: clang
+
+cache:
+  directories:
+  - node_modules
+  - $HOME/.electron
+  - $HOME/.cache
+
+addons:
+  apt:
+    packages:
+      - libgnome-keyring-dev
+      - icnsutils
+
+before_install:
+  - export PATH="$HOME/.npm/bin:$PATH"
+
+install:
+- nvm install 7
+- npm install
+- npm install -g electron-forge
+
+script:
+- npm run publish
+
+branches:
+  only:
+  - master
+  - /^v\d+\.\d+\.\d+/
