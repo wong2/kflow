@@ -1,7 +1,7 @@
 {
   "name": "kflow",
   "productName": "Kflow",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "kflow is a GUI for k2pdfopt",
   "license": "MIT",
   "repository": "wong2/kflow",
@@ -67,7 +67,7 @@
         ]
       },
       "electronPackagerConfig": {
-        "icon": "src/icons/ico"
+        "icon": "src/icons/icon"
       },
       "electronWinstallerConfig": {},
       "electronInstallerDebian": {},
