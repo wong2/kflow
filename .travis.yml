@@ -23,6 +23,7 @@ addons:
     packages:
       - libgnome-keyring-dev
       - icnsutils
+      - rpm
 
 before_install:
   - export PATH="$HOME/.npm/bin:$PATH"
