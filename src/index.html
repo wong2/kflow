@@ -53,7 +53,7 @@
         </div>
         <div class="section result" v-if="progressing">
           <h3>Result</h3>
-          <div class="log" v-html="logText" v-chat-scroll></div>
+          <div class="log" v-html="logText" v-auto-bottom></div>
           <div class="progressbar" :style="{ width: progressText }"></div>
         </div>
         <div class="section convert-btn-section">

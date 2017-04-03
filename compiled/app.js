@@ -2241,185 +2241,7 @@ module.exports = require("path");
 
 /***/ }),
 /* 10 */,
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(true)
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else {
-		var a = factory();
-		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
-	}
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 23);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ 0:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _vChatScroll = __webpack_require__(1);
-
-var _vChatScroll2 = _interopRequireDefault(_vChatScroll);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var VueChatScroll = {
-    install: function install(Vue, options) {
-        Vue.directive('chat-scroll', _vChatScroll2.default);
-    }
-}; /**
-    * @name VueJS vChatScroll (vue-chat-scroll)
-    * @description Monitors an element and scrolls to the bottom if a new child is added
-    * @author Theodore Messinezis <theo@theomessin.com>
-    * @file vue-chat-scroll plugin definition
-    */
-
-exports.default = VueChatScroll;
-
-
-if (typeof window !== 'undefined' && window.Vue) {
-    window.Vue.use(VueChatScroll);
-}
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ 1:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-/**
- * @name VueJS vChatScroll (vue-chat-scroll)
- * @description Monitors an element and scrolls to the bottom if a new child is added
- * @author Theodore Messinezis <theo@theomessin.com>
- * @file v-chat-scroll  directive definition
- */
-
-var scrollToBottom = function scrollToBottom(el) {
-    el.scrollTop = el.scrollHeight;
-};
-
-var vChatScroll = {
-    bind: function bind(el, binding) {
-        var timeout = void 0;
-        var scrolled = false;
-
-        el.addEventListener('scroll', function (e) {
-            if (timeout) window.clearTimeout(timeout);
-            timeout = window.setTimeout(function () {
-                scrolled = el.scrollTop + el.clientHeight + 1 < el.scrollHeight;
-            }, 200);
-        });
-
-        new MutationObserver(function (e) {
-            var config = binding.value || {};
-            var pause = config.always === false && scrolled;
-            if (pause || e[e.length - 1].addedNodes.length != 1) return;
-            scrollToBottom(el);
-        }).observe(el, { childList: true });
-    },
-    inserted: scrollToBottom
-};
-
-exports.default = vChatScroll;
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(0);
-
-
-/***/ })
-
-/******/ });
-});
-
-/***/ }),
+/* 11 */,
 /* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12630,18 +12452,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_fs__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_fs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_chat_scroll__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_chat_scroll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_chat_scroll__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_electron__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_electron__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_child_process__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_child_process___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_child_process__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_photon_dist_css_photon_css__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_photon_dist_css_photon_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_photon_dist_css_photon_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_css__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_electron__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_child_process__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_child_process___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_child_process__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_photon_dist_css_photon_css__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_photon_dist_css_photon_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_photon_dist_css_photon_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__style_css__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__style_css__);
 
 
 
@@ -12653,7 +12473,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_2_vue_chat_scroll___default.a)
+__WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].directive('auto-bottom', {
+  update: function(el) {
+    el.scrollTop = el.scrollHeight
+  }
+})
+
 
 const app = new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
   el: '#app',
@@ -12669,7 +12494,7 @@ const app = new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
       ws: -0.2,
       as: true,
       wrap: true,
-    }, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__config__["a" /* getUserOptions */])())
+    }, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__config__["a" /* getUserOptions */])())
   },
   computed: {
     progressText: function() {
@@ -12679,12 +12504,12 @@ const app = new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
       if (!this.inputPath) {
         return ''
       }
-      return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils__["a" /* getOutputPath */])(this.inputPath)
+      return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils__["a" /* getOutputPath */])(this.inputPath)
     }
   },
   methods: {
     selectInputFile: function() {
-      __WEBPACK_IMPORTED_MODULE_3_electron__["remote"].dialog.showOpenDialog({
+      __WEBPACK_IMPORTED_MODULE_2_electron__["remote"].dialog.showOpenDialog({
         defaultPath: this.inputPath,
         filters: [
           {name: 'PDFs', extensions: ['pdf']}
@@ -12702,40 +12527,40 @@ const app = new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
       if (m) {
         this.progress = parseInt(m[1]) / parseInt(m[2])
       }
-      this.logText += __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils__["b" /* ansiToHtml */])(s)
+      this.logText += __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils__["b" /* ansiToHtml */])(s)
     },
     convert: function() {
       if (!this.inputPath) {
-        __WEBPACK_IMPORTED_MODULE_3_electron__["remote"].dialog.showErrorBox('Error', 'no input pdf selected')
+        __WEBPACK_IMPORTED_MODULE_2_electron__["remote"].dialog.showErrorBox('Error', 'no input pdf selected')
         return
       }
       this.logText = ''
       this.progress = 0
       this.progressing = true
 
-      const win = __WEBPACK_IMPORTED_MODULE_3_electron__["remote"].getCurrentWindow()
+      const win = __WEBPACK_IMPORTED_MODULE_2_electron__["remote"].getCurrentWindow()
       const [w, h] = win.getSize()
       win.setSize(w, 800, true)
       win.center()
 
-      let options = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils__["c" /* configToOptions */])(this.config)
+      let options = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils__["c" /* configToOptions */])(this.config)
       options = options.concat([
         '-x',
         '-y',
         '-o',
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils__["d" /* fixPath */])(this.outputPath),
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils__["d" /* fixPath */])(this.inputPath),
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils__["d" /* fixPath */])(this.outputPath),
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils__["d" /* fixPath */])(this.inputPath),
       ])
 
-      let child = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_child_process__["spawn"])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils__["d" /* fixPath */])(__WEBPACK_IMPORTED_MODULE_5__config__["b" /* executablePath */]), options, {shell: true})
+      let child = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_child_process__["spawn"])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils__["d" /* fixPath */])(__WEBPACK_IMPORTED_MODULE_4__config__["b" /* executablePath */]), options, {shell: true})
       child.stdout.on('data', this.log.bind(this))
       child.stderr.on('data', this.log.bind(this))
       child.on('close', (code) => {
         if (code === 0) {
-          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__config__["c" /* saveUserOptions */])(this.config)
-          __WEBPACK_IMPORTED_MODULE_3_electron__["remote"].shell.showItemInFolder(this.outputPath)
+          __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__config__["c" /* saveUserOptions */])(this.config)
+          __WEBPACK_IMPORTED_MODULE_2_electron__["remote"].shell.showItemInFolder(this.outputPath)
         } else {
-          __WEBPACK_IMPORTED_MODULE_3_electron__["remote"].dialog.showErrorBox('Error', `k2pdfopt exited with code: ${code}`)
+          __WEBPACK_IMPORTED_MODULE_2_electron__["remote"].dialog.showErrorBox('Error', `k2pdfopt exited with code: ${code}`)
         }
       })
       child.stdin.write('\r\n')

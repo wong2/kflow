@@ -35,8 +35,7 @@
     "sleep-promise": "^2.0.0",
     "titlebar": "^1.4.0",
     "url-loader": "^0.5.8",
-    "vue": "^2.2.4",
-    "vue-chat-scroll": "github:wong2/vue-chat-scroll#dev"
+    "vue": "^2.2.4"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.22.0",

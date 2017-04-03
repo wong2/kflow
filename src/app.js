@@ -1,6 +1,5 @@
 import fs from 'fs'
 import Vue from 'vue'
-import VueChatScroll from 'vue-chat-scroll'
 import { remote } from 'electron'
 import { spawn } from 'child_process'
 import { executablePath, getUserOptions, saveUserOptions } from './config'
@@ -9,7 +8,13 @@ import { ansiToHtml, configToOptions, getOutputPath, fixPath } from './utils'
 import 'photon/dist/css/photon.css'
 import './style.css'
 
-Vue.use(VueChatScroll)
+
+Vue.directive('auto-bottom', {
+  update: function(el) {
+    el.scrollTop = el.scrollHeight
+  }
+})
+
 
 const app = new Vue({
   el: '#app',
