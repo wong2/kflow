@@ -12484,7 +12484,7 @@ const app = new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
   el: '#app',
   data: {
     inputPath: '',
-    progressing: false,
+    processing: false,
     progress: 0,
     logText: '',
     config: Object.assign({
@@ -12536,7 +12536,7 @@ const app = new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
       }
       this.logText = ''
       this.progress = 0
-      this.progressing = true
+      this.processing = true
 
       const win = __WEBPACK_IMPORTED_MODULE_2_electron__["remote"].getCurrentWindow()
       const [w, h] = win.getSize()

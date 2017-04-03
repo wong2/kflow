@@ -20,7 +20,7 @@ const app = new Vue({
   el: '#app',
   data: {
     inputPath: '',
-    progressing: false,
+    processing: false,
     progress: 0,
     logText: '',
     config: Object.assign({
@@ -72,7 +72,7 @@ const app = new Vue({
       }
       this.logText = ''
       this.progress = 0
-      this.progressing = true
+      this.processing = true
 
       const win = remote.getCurrentWindow()
       const [w, h] = win.getSize()
